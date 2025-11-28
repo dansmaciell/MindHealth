@@ -1,0 +1,15 @@
+.btn-quero-apoiar {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  padding: 0.6rem 1.5rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+
+.btn-quero-apoiar:hover {
+  background-color: #A4CD3A; /* Bootstrap's "success" green */
+  border-color: #A4CD3A;
+  color: white;
+}

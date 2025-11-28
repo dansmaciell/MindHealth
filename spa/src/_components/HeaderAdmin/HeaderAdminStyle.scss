@@ -1,0 +1,52 @@
+/* admin-sidebar.css */
+
+.sidebar-link {
+  color: white !important;
+  transition: background-color 0.2s ease;
+}
+
+.sidebar-link:hover,
+.sidebar-link.active {
+  background-color: #A4CD3A !important;
+  color: white !important;
+}
+
+.sidebar-logout {
+  color: white !important;
+  transition: background-color 0.2s ease;
+}
+
+.sidebar-logout:hover {
+  background-color: #A4CD3A !important;
+  color: white !important;
+}
+
+/* Responsividade */
+.sidebar-container {
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1040;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Ocultar sidebar em telas pequenas */
+@media (max-width: 767.98px) {
+  .sidebar-container {
+    transform: translateX(-100%);
+  }
+
+  .sidebar-container.show-sidebar {
+    transform: translateX(0);
+  }
+}
+
+/* Em telas grandes, sidebar sempre visível */
+@media (min-width: 768px) {
+  .sidebar-container {
+    transform: none !important;
+    position: relative;
+  }
+}

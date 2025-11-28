@@ -1,0 +1,58 @@
+.cardProjetos {
+  width: 300px;
+  height: auto;
+  background-color: white;
+  border-radius: 50px;
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+}
+
+.image {
+  height: 35%;
+  width: 100%;
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.textoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #0F2743;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.pair {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.pair:last-child {
+  margin-bottom: 0;
+}
+
+.pair p:first-child {
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.pair p:last-child {
+  margin: 0;
+}

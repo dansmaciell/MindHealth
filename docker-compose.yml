@@ -1,0 +1,97 @@
+services:
+
+  frontend:
+    build:
+      context: ./spa
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./spa/docker:/usr/src/app/docker
+      - ./spa/public:/usr/src/app/public
+      - ./spa/src:/usr/src/app/src
+      - ./spa/vite.config.ts:/usr/src/app/vite.config.ts
+      - ./spa/.env:/usr/src/app/.env
+      - /usr/src/app/node_modules
+    networks:
+      - sail
+    environment:
+      VITE_BASE_URL: https://instituto-lucas-silva.com.br
+      NODE_ENV: development
+    image: react-spa
+
+  laravel:
+    container_name: 'laravel'
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    working_dir: /var/www/html
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_DATABASE: laravel
+      DB_USERNAME: postgres
+      DB_PASSWORD: password
+    volumes:
+      - './api/app:/var/www/html/app'
+      - './api/bootstrap:/var/www/html/bootstrap'
+      - './api/config:/var/www/html/config'
+      - './api/database:/var/www/html/database'
+      - './api/public:/var/www/html/public'
+      - './api/resources:/var/www/html/resources'
+      - './api/routes:/var/www/html/routes'
+      - './api/storage:/var/www/html/storage'
+      - './api/tests:/var/www/html/tests'
+    depends_on:
+      - db
+    networks:
+      - sail
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - 443:443
+    volumes:
+      - ./api/docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./api/docker/nginx/ssl:/etc/nginx/ssl
+      - ./api:/var/www/html
+    depends_on:
+      - laravel
+    networks:
+      - sail
+
+  db:
+    image: postgres:17
+    restart: always
+    environment:
+      POSTGRES_DB: laravel
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    volumes:
+      - db:/var/lib/postgresql/data
+      - ./api/docker/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+    networks:
+      - sail
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    restart: unless-stopped
+    ports:
+      - "8081:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: user@localhost.com
+      PGADMIN_DEFAULT_PASSWORD: password
+    networks:
+      - sail
+    depends_on:
+      - db
+
+networks:
+  sail:
+    driver: bridge
+
+volumes:
+  db:
+    driver: local

@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+function check_postgres_ready() {
+  pg_isready -h $DB_HOST -U "$DB_USERNAME" -d "$DB_DATABASE"
+}
+
+echo "Esperando pelo banco de dados ficar ativo e saudável..."
+until check_postgres_ready; do
+  echo "Aguardando banco de dados..."
+  sleep 5
+done
+
+echo "Banco de dados está saudável. Continuando com a inicialização."
+
+php artisan migrate
+php-fpm
