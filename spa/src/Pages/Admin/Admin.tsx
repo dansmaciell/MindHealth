@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import Input from '../../_components/Input/Input';
 import Button from '../../_components/Button/Button';
 import Feedback from "../../_components/Feedback/Feedback.tsx";
-import logo from '../../Image/lucas_silva-removebg-preview.png';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import style from './Admin.module.scss';
@@ -72,12 +71,6 @@ export default function LoginAdmin() {
             <div className={style.container}>
                 <div className="card shadow-sm p-4" style={{ width: '100%', maxWidth: '400px' }}>
                     <div className="text-center mb-4">
-                        <img
-                            src={logo}
-                            alt="Instituto Lucas Silva"
-                            style={{ width: '200px' }}
-                            className="img-fluid"
-                        />
                     </div>
 
                     <form onSubmit={handleLogin}>

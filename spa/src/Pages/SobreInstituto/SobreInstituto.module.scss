@@ -1,4 +1,122 @@
+$primary-color: #54949F; // Ciano/Azul do seu projeto
+$secondary-color: #A4CD3A; // Verde/Amarelo de apoio
+$text-color: #333;
+$bg-light: #f9f9f9;
+
+.sobreSection {
+    background-color: $bg-light;
+    padding: 80px 20px;
+    font-family: 'Inter', sans-serif;
+}
+
 .container {
-  width: 55%;
-  margin: 55px auto 60px auto;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tituloPrincipal {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 50px;
+    color: $text-color;
+
+    @media (min-width: 768px) {
+        font-size: 3.5rem;
+    }
+}
+
+.destaqueCiano {
+    color: $primary-color;
+}
+
+.conteudoGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-bottom: 60px;
+
+    @media (min-width: 900px) {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+}
+
+.colunaTexto {
+    flex: 2;
+    padding-right: 20px;
+}
+
+.paragrafo {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    color: #555;
+    text-align: justify;
+}
+
+.colunaDestaque {
+    flex: 1;
+    background-color: black;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border-top: 5px solid $primary-color;
+}
+
+.imagemDestaque {
+    width: 100px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.missaoDestaque {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: $primary-color;
+    line-height: 1.5;
+}
+
+.funcionalidades {
+    padding: 40px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.subtitulo {
+    font-size: 1.8rem;
+    color: $primary-color;
+    margin-bottom: 25px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.listaObjetivos {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+
+    @media (min-width: 768px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    li {
+        background-color: $bg-light;
+        padding: 15px;
+        border-left: 4px solid $secondary-color;
+        border-radius: 8px;
+        font-size: 1rem;
+        color: $text-color;
+        display: flex;
+        align-items: center;
+    }
+}
+
+.icone {
+    font-size: 1.5rem;
+    margin-right: 10px;
 }

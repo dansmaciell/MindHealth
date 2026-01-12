@@ -1,0 +1,612 @@
+$primary-color: #54949F;
+$secondary-color: #A4CD3A;
+$bg-light: #f4f7f9;
+$card-bg: white;
+$text-dark: #333;
+
+/* --- SEÇÃO DE INTRODUÇÃO E TERMOS --- */
+.introducao {
+    position: relative;
+    background-color: #f0f8ff; 
+    
+    // --- FUNDO CORRIGIDO ---
+    background-size: cover;
+    background-position: center center; 
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    padding: 100px 20px 50px; // Padding padrão do PC
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: $text-dark;
+
+    // --- AJUSTES MOBILE (AQUI ESTÁ A MUDANÇA) ---
+    @media (max-width: 768px) {
+        // Aumentei de 120px para 180px aqui no primeiro valor 👇
+        padding: 180px 15px 40px; 
+        
+        height: auto; 
+        background-attachment: scroll;
+    }
+}
+
+
+
+.introContent {
+    max-width: 1000px; 
+    width: 100%;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* NOVO: Container Flex para Texto e Card */
+.introFlexContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    margin-bottom: 30px;
+
+    @media (max-width: 768px) {
+        flex-direction: column; // Empilha um embaixo do outro no celular
+        gap: 20px;
+    }
+}
+
+.introTextColumn {
+    flex: 2; 
+    min-width: 300px;
+    text-align: left; 
+    
+    @media (max-width: 768px) {
+        min-width: 100%; // Ocupa largura total no celular
+        text-align: center; // Centraliza texto no celular
+    }
+}
+
+.tituloIntro {
+    font-size: 3rem;
+    font-weight: 800;
+    color: $primary-color;
+    margin-bottom: 10px;
+    text-align: center;
+
+    @media (max-width: 768px) {
+        font-size: 2rem; // Diminui a fonte no celular
+    }
+}
+
+.subtituloIntro {
+    font-size: 1.5rem;
+    color: $text-dark;
+    margin-bottom: 20px;
+    text-align: center;
+
+    @media (max-width: 768px) {
+        font-size: 1.2rem;
+    }
+}
+
+.descricaoIntro {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: #555;
+    text-align: justify;
+
+    @media (max-width: 768px) {
+        font-size: 1rem;
+        text-align: center; // Melhor leitura no mobile
+    }
+}
+
+/* --- ESTILOS DO CARD DE DOWNLOAD --- */
+.downloadCard {
+    flex: 1; 
+    min-width: 250px;
+    background-color: #e6f7ff; 
+    border: 1px solid #cceeff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    height: fit-content; 
+
+    @media (max-width: 768px) {
+        width: 100%; // Card ocupa largura total no celular
+    }
+}
+
+.downloadTitle {
+    font-size: 1.3rem;
+    color: $primary-color;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.downloadSubtitle {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.downloadButton {
+    background-color: transparent; // Ajuste para a versão com borda
+    color: $primary-color;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 1px solid $primary-color;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    
+    &:hover {
+        background-color: $primary-color;
+        color: white;
+    }
+}
+
+/* --- ESTILOS DO TERMOS DE ACEITE --- */
+.termsContainer {
+    border: 2px solid $secondary-color;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: lighten($secondary-color, 30%); 
+    margin-top: 30px;
+    text-align: left;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.termsText {
+    font-size: 0.95rem;
+    color: #3a5e01; 
+    font-weight: 500;
+    line-height: 1.5;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.alertIcon {
+    font-size: 1.2rem;
+    color: #cc0000;
+}
+
+.btnExplore {
+    background-color: $primary-color;
+    color: white;
+    padding: 12px 34px;
+    border-radius: 40px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    display: block; 
+    margin: 20px auto 0; 
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+    }
+}
+
+.acceptedBtn {
+    background-color: $secondary-color; 
+    &:hover {
+        background-color: darken($secondary-color, 5%);
+    }
+}
+
+@keyframes arrowMove {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(5px); }
+    100% { transform: translateY(0); }
+}
+
+.arrow {
+    display: inline-block;
+    font-size: 1.3rem;
+    animation: arrowMove 1.2s ease-in-out infinite;
+}
+
+/* --- ESTILOS GERAIS DO DIÁRIO --- */
+.diarioContainer {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background-color: #fff; // Garante fundo branco
+    border-radius: 16px;
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.20),
+        0 5px 10px rgba(0, 0, 0, 0.10);
+    min-height: 100vh;
+
+    @media (max-width: 768px) {
+        padding: 20px; // Menos padding no container principal
+        border-radius: 0; // Remove borda arredondada no mobile para aproveitar espaço
+    }
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-top: 20px;
+}
+
+.title {
+    font-size: 2.5rem;
+    color: $primary-color;
+    font-weight: 800;
+
+    @media (max-width: 768px) {
+        font-size: 1.8rem;
+    }
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+.sectionTitle {
+    font-size: 1.8rem;
+    color: $primary-color;
+    border-bottom: 2px solid $secondary-color;
+    padding-bottom: 5px;
+    margin-bottom: 25px;
+
+    @media (max-width: 768px) {
+        font-size: 1.4rem;
+    }
+}
+
+/* --- SEÇÃO DE INSIGHTS --- */
+.insightsCard {
+    background-color: lighten($primary-color, 45%);
+    border: 1px solid $primary-color;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+.insightsTitle {
+    font-size: 1.4rem;
+    color: darken($primary-color, 10%);
+    margin-bottom: 10px;
+}
+.insightsText {
+    font-size: 1.1rem;
+    color: $text-dark;
+}
+
+
+/* --- SEÇÃO DE GRÁFICO / VISUALIZAÇÃO --- */
+.graphSection {
+    background-color: $card-bg;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    margin-bottom: 40px;
+
+    @media (max-width: 768px) {
+        padding: 15px;
+    }
+}
+
+.chartWrapper {
+    width: 100%;
+    // Permite que o SVG se ajuste ao tamanho
+    display: flex;
+    justify-content: center;
+}
+
+.moodChart {
+    width: 100%;
+    height: auto; // Importante para manter proporção
+    max-height: 300px;
+}
+
+.chartMessage {
+    text-align: center;
+    color: #999;
+    padding: 20px;
+}
+
+
+/* --- SEÇÃO DE NOVA ENTRADA / FORMULÁRIO --- */
+
+.newEntrySection {
+    background-color: $card-bg;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    margin-bottom: 40px;
+
+    @media (max-width: 768px) {
+        padding: 15px;
+    }
+}
+
+.moodForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputLabel {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #444;
+    margin-top: 15px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.moodSelector {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.moodOption {
+    background: #eee;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    flex: 1 1 100px; // Ajustado para quebrar melhor em telas pequenas
+    text-align: center;
+}
+
+.selected {
+    background-color: lighten($secondary-color, 15%);
+    border-color: $secondary-color;
+    box-shadow: 0 0 5px rgba($secondary-color, 0.5);
+    transform: scale(1.05);
+}
+
+.moodEmoji {
+    font-size: 2.5rem;
+    display: block;
+}
+
+.moodLabel {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: $text-dark;
+}
+
+.tagSelector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.tagOption {
+    background: #eee;
+    border: 1px solid #ddd;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.tagSelected {
+    background-color: $primary-color;
+    color: white;
+    border-color: $primary-color;
+}
+
+.entryTextarea, .selectInput {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    resize: vertical;
+    transition: border-color 0.2s;
+}
+
+.entryTextarea:focus, .selectInput:focus {
+    border-color: $primary-color;
+    outline: none;
+}
+
+.sliderContainer {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 0;
+
+    span {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: $primary-color;
+    }
+}
+
+.rangeSlider {
+    flex-grow: 1;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 8px;
+    background: #ddd;
+    border-radius: 4px;
+    outline: none;
+
+    &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: $primary-color;
+        cursor: pointer;
+        border: 3px solid $card-bg;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    }
+}
+
+
+.saveButton {
+    background-color: $primary-color;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    
+    &:disabled {
+        background-color: lighten($primary-color, 20%);
+        cursor: not-allowed;
+    }
+}
+
+.historySection {
+    padding: 30px 0;
+}
+
+.entriesList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.entryCard {
+    position: relative;
+    border-left: 5px solid $primary-color;
+    background-color: $card-bg;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.entryHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.cardMoodEmoji {
+    font-size: 2rem;
+    line-height: 1;
+    margin-right: 10px;
+}
+
+.cardTimestamp {
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 600;
+}
+
+.cardMetrics {
+    font-size: 0.95rem;
+    color: $primary-color;
+    font-weight: 600;
+    margin: 5px 0;
+}
+.cardTags {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.tagDisplay {
+    display: inline-block;
+    background-color: lighten($primary-color, 40%);
+    color: $primary-color;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    margin-right: 5px;
+}
+.cardText {
+    margin: 0;
+    line-height: 1.6;
+    color: #444;
+}
+
+.noEntries {
+    text-align: center;
+    color: #999;
+    font-style: italic;
+    padding: 30px;
+}
+
+.deleteButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #aaa;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.deleteButton:hover {
+    color: #d9534f;
+}
+
+.authRequired {
+    text-align: center;
+    padding: 80px 20px;
+    margin-top: 50px;
+    background: $card-bg;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.authButtons {
+    margin-top: 25px;
+}
+
+.loginBtn, .registerBtn {
+    display: inline-block;
+    text-decoration: none;
+    padding: 12px 25px;
+    margin: 0 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.loginBtn {
+    background-color: $primary-color;
+    color: white;
+}
+
+.loginBtn:hover {
+    background-color: darken($primary-color, 10%);
+}
+
+.registerBtn {
+    border: 2px solid $primary-color;
+    color: $primary-color;
+    background: transparent;
+}
+
+.registerBtn:hover {
+    background-color: $primary-color;
+    color: white;
+}

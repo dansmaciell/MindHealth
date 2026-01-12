@@ -1,0 +1,74 @@
+/* Variáveis */
+:root {
+    --hover-color: #54949F;
+    --text-color: #ffffff;
+}
+
+/* --- CONFIGURAÇÃO DA BARRA (TRANSPARENTE E FLUTUANTE) --- */
+.header-custom {
+    position: absolute; /* Faz o header flutuar sobre o conteúdo */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100; /* Garante que fique na frente de tudo */
+    background: transparent; /* Remove o fundo duplicado */
+    padding: 15px 40px; /* Espaçamento interno */
+
+    /* Ajuste para celular */
+    @media (max-width: 768px) {
+        padding: 10px 20px;
+    }
+}
+
+/* --- LOGO --- */
+.logo-diario {
+    width: 180px; /* Tamanho controlado */
+    height: auto;
+    transition: transform 0.3s ease;
+
+    @media (max-width: 768px) {
+        width: 120px; /* Logo menor no celular */
+    }
+}
+
+.logo-diario:hover {
+    transform: scale(1.05);
+}
+
+/* --- BOTÕES E ÍCONES --- */
+.nav-link-custom {
+    color: var(--text-color);
+    transition: color 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    padding: 5px;
+
+    &:hover {
+        color: var(--hover-color) !important;
+    }
+}
+
+/* Customização do Hamburguer (as três listrinhas) */
+.custom-toggler {
+    border-color: rgba(255, 255, 255, 0.5);
+    
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
+}
+
+/* Ajuste do menu aberto no celular */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background: rgba(84, 148, 159, 0.95); /* Fundo colorido só quando abre o menu no celular */
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .navbar-nav {
+        justify-content: center; /* Centraliza os ícones no menu mobile */
+        gap: 20px !important;
+    }
+}

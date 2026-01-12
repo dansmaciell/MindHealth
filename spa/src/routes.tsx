@@ -20,6 +20,10 @@ import Projetos from "./Pages/Projetos/Projetos.tsx"
 import ProjetosAdmin from "./Pages/Admin/Projetos/Projetos.tsx";
 import CreateProjeto from "./Pages/Admin/Projetos/_components/CreateProjeto.tsx";
 import UpdateProjeto from "./Pages/Admin/Projetos/_components/UpdateProjeto.tsx";
+import Register from "./Pages/Register/register.tsx";
+import Login from "./Pages/Login/Login.tsx";
+import DiarioEmocional from "./Pages/DiarioEmocional/DiarioEmocional.tsx";
+import DiarioLayout from "./Pages/DiarioEmocional/DiarioLayout";
 
 export default function AppRouter() {
   return (
@@ -32,7 +36,19 @@ export default function AppRouter() {
           <Route path="/fale-conosco" element={<FaleConosco />} />
           <Route path="/quero-apoiar" element={<QueroApoiar />}/>
           <Route path="/projetos" element={<Projetos />}/>
+          <Route path="/register" element={<Register />}/>
+          <Route path="/login" element={<Login />}/>
         </Route>
+
+
+        <Route
+            path="/diarioemocional"
+            element={
+              <ProtectedRoute>
+                <DiarioEmocional />
+              </ProtectedRoute>
+            }
+          />
 
         <Route
           path="/admin"

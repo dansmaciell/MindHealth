@@ -1,18 +1,16 @@
 import Footer from "../../_components/Footer/Footer";
 import Header from "../../_components/Header/Header";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 
 export default function PageBase() {
+  const location = useLocation();
+  const hideLayout = location.pathname === "/login" || location.pathname === "/register" || location.pathname === "/DiarioEmocional";
 
   return (
     <main>
-      <div>
-        <Header />
-      </div>
-      <div>
-        <Outlet />
-      </div>
-      <Footer />
+      {!hideLayout && <Header />}
+      <Outlet />
+      {!hideLayout && <Footer />}
     </main>
   );
 }

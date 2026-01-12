@@ -10,16 +10,16 @@ return new class extends Migration
     {
         DB::table('usuarios')->insert([
             [
-                'name' => 'Bruno',
-                'email' => 'bruno@gmail.com',
-                'username' => 'bruno',
+                'nome' => 'Daniel',
+                'email' => 'daniel@gmail.com',
+                'username' => 'daniel',
                 'password' => bcrypt('senha123'),
                 'status' => true
             ],
             [
-                'name' => 'Matheus',
-                'email' => 'matheus@gmail.com',
-                'username' => 'matheus',
+                'nome' => 'Robson',
+                'email' => 'Robson@gmail.com',
+                'username' => 'robson',
                 'password' => bcrypt('senha123'),
                 'status' => true
             ]

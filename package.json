@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@fortawesome/free-regular-svg-icons": "^7.1.0",
+    "bootstrap-icons": "^1.13.1",
+    "firebase": "^12.6.0",
+    "uuid": "^13.0.0"
+  }
+}

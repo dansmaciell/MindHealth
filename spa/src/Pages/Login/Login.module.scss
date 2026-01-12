@@ -1,0 +1,117 @@
+$primary-color: #54949F;
+$secondary-color: #A4CD3A;
+$tertiary-color: transparent;
+$text-dark: #333;
+
+.loginPage {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    position: relative;
+    
+    /* Overlay para escurecer o fundo e dar destaque ao card */
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+    }
+}
+
+.loginCard {
+    z-index: 10;
+    width: 100%;
+    max-width: 400px;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    border-top: 5px solid $primary-color;
+    transition: transform 0.3s ease;
+    
+    &:hover {
+        transform: translateY(-3px);
+    }
+}
+
+.logoImage {
+    width: 150px;
+    height: auto;
+    margin: 0 auto 25px;
+    display: block;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: $primary-color;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.errorMessage {
+    color: #d9534f; /* Vermelho para erros */
+    background-color: #fdd;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.inputGroup {
+    margin-bottom: 20px;
+}
+
+.loginButton {
+    background-color: $tertiary-color;
+    color: #54949F;
+    border: 1px solid #54949F;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s;
+    margin-top: 20px;
+    width: 100%;
+    
+    &:hover:not(:disabled) {
+        background-color: darken($primary-color, 10%);
+        color: #fff;
+    }
+
+    &:disabled {
+        background-color: lighten($primary-color, 20%);
+        cursor: not-allowed;
+    }
+}
+
+.registerLinkContainer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.95rem;
+    color: #666;
+}
+
+.registerLink {
+    color: $primary-color;
+    text-decoration: none;
+    font-weight: 600;
+    
+    &:hover {
+        text-decoration: underline;
+    }
+}

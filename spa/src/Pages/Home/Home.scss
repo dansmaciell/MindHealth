@@ -1,15 +1,209 @@
-.btn-quero-apoiar {
-  background-color: transparent;
-  color: white;
-  border: 2px solid white;
-  padding: 0.6rem 1.5rem;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  border-radius: 4px;
+// --- VARIÁVEIS ---
+$ciano: #54949F;
+$verde-hover: #A4CD3A;
+
+// FONTE IGUAL AO HEADER (Limpa/Sistema)
+$fonte-principal: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+// --- RESET & BASE ---
+.mind-home-wrapper {
+    width: 100%;
+    overflow-x: hidden;
+    
+    // --- MUDANÇA PRINCIPAL: Fundo Branco Obrigatório ---
+    background-color: #ffffff !important; 
+    min-height: 100vh;
+    
+    // Aplica a fonte limpa
+    .main-font {
+        font-family: $fonte-principal;
+    }
 }
 
-.btn-quero-apoiar:hover {
-  background-color: #A4CD3A; /* Bootstrap's "success" green */
-  border-color: #A4CD3A;
-  color: white;
+.text-ciano { color: $ciano; }
+
+// --- 1. HERO SECTION ---
+.mind-hero {
+    width: 100%;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    display: flex;
+    align-items: center;
+    padding: 120px 0 80px;
+
+    .hero-desc {
+        max-width: 900px;
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+}
+
+// --- CARDS ---
+.mind-card {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    
+    width: 350px; 
+    min-width: 300px; 
+    
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+
+    &:hover {
+        transform: translateY(-8px);
+    }
+
+    .img-container {
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+        
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; 
+            &.blog-img { object-fit: cover; }
+        }
+    }
+
+    .card-content {
+        padding: 20px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        h5 { margin-bottom: 10px; color: #333; }
+    }
+}
+
+.tcc-card .img-container img {
+    object-fit: contain;
+    padding: 20px;
+}
+
+.blog-card .img-container img {
+    object-fit: cover;
+
+}
+
+
+.tel-card .img-container img {
+    object-fit: cover;
+    transform: scale(1.2); 
+    transform-origin: center;
+}
+
+
+.tel-card .img-container {
+    overflow: hidden;
+}
+
+
+// --- 2. SEÇÕES GERAIS ---
+.mind-section {
+    padding: 80px 0;
+    
+    // Garante que não tenha fundo cinza perdido
+    background-color: transparent;
+
+    .content-text {
+        font-family: $fonte-principal;
+        font-size: 1.2rem;
+        line-height: 1.6;
+        color: #555;
+        margin-bottom: 25px;
+    }
+    
+    img {
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+}
+
+// --- CAROUSEL & LINHA DE CARDS ---
+.carousel-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    
+    .cards-row {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap; 
+        width: 100%;
+    }
+
+    .nav-btn {
+        background: #0a5c74;
+        color: white;
+        border: none;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: 0.3s;
+        flex-shrink: 0; 
+        &:hover { background: $ciano; }
+    }
+}
+
+// --- MAPA ---
+.map-box {
+    width: 100%;
+    height: 450px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+// --- FALE CONOSCO ---
+.fale-conosco-bg {
+    background-image: url('/imgs/fundot4.png');
+    background-size: 130%;
+    background-position: center;
+    padding: 100px 0;
+}
+
+
+// Responsividade mobile
+@media (max-width: 991px) {
+    .mind-hero {
+        padding: 80px 0 50px;
+        text-align: center;
+    }
+
+    .display-3 { font-size: 2.5rem; }
+    .display-4 { font-size: 2rem; }
+
+    .mind-card {
+        width: 100%;
+        max-width: 340px; 
+    }
+
+    .content-block {
+        flex-direction: column !important;
+        text-align: center !important;
+        
+        
+        img { margin-bottom: 20px; max-width: 80%; }
+        .text-lg-start { text-align: center !important; }
+    }
+
+    .fale-conosco-bg {
+        text-align: center;
+        .col-lg-5 { margin-bottom: 40px; }
+    }
 }

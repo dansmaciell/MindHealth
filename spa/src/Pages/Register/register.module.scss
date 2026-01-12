@@ -1,0 +1,152 @@
+$primary-color: #54949F;
+$secondary-color: #A4CD3A;
+$tertiary-color: transparent;
+$text-dark: #333;
+$bg-light: #f4f7f9;
+
+.registerPage {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    position: relative;
+    
+    /* Overlay para escurecer o fundo e dar destaque ao card */
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+    }
+}
+
+.registerCard {
+    z-index: 10;
+    width: 100%;
+    max-width: 450px;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    border-top: 5px solid $primary-color;
+    transition: transform 0.3s ease;
+    
+    &:hover {
+        transform: translateY(-5px);
+    }
+}
+
+.cardHeader {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: $primary-color;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: #666;
+}
+
+.registerForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+}
+
+.formGroup label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: $text-dark;
+    margin-bottom: 5px;
+}
+
+.formGroup input {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    
+    &:focus {
+        border-color: $primary-color;
+        box-shadow: 0 0 0 3px rgba($primary-color, 0.2);
+        outline: none;
+    }
+}
+
+
+.registerButton {
+    background-color: $tertiary-color;
+    color: #54949F;
+    border: 1px solid #54949F;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s;
+    margin-top: 20px;
+    width: 100%;
+    
+    &:hover:not(:disabled) {
+        background-color: darken($primary-color, 10%);
+        color: #fff;
+    }
+
+    &:disabled {
+        background-color: lighten($primary-color, 20%);
+        cursor: not-allowed;
+    }
+}
+
+.errorMessage {
+    color: #d9534f; /* Vermelho para erros */
+    background-color: #fdd;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.successMessage {
+    color: $secondary-color; /* Verde para sucesso */
+    background-color: lighten($secondary-color, 35%);
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.cardFooter {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.95rem;
+    color: #666;
+}
+
+.loginLink {
+    color: $primary-color;
+    text-decoration: none;
+    font-weight: 600;
+    
+    &:hover {
+        text-decoration: underline;
+    }
+}

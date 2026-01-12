@@ -18,6 +18,7 @@ services:
     environment:
       VITE_BASE_URL: https://instituto-lucas-silva.com.br
       NODE_ENV: development
+      VITE_MAPBOX_TOKEN: pk.eyJ1IjoiZGFuaWVsLW1hY2llbDA1IiwiYSI6ImNtaXM1djFoeDByZXAzZ3B5a29qNWF6ZnIifQ.qYlIHdxothBqw-DjkvgRHw
     image: react-spa
 
   laravel:
@@ -42,6 +43,8 @@ services:
       - './api/routes:/var/www/html/routes'
       - './api/storage:/var/www/html/storage'
       - './api/tests:/var/www/html/tests'
+      - './api/.env:/var/www/html/.env'
+      - './api:/var/www/html'
     depends_on:
       - db
     networks:

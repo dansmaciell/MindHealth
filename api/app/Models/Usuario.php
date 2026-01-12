@@ -4,31 +4,39 @@ namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
+use Tymon\JWTAuth\Contracts\JWTSubject;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Usuario extends Authenticatable
+class Usuario extends Authenticatable implements JWTSubject
 {
-    use HasApiTokens, Notifiable;
+    use HasFactory, Notifiable;
 
     protected $table = 'usuarios';
 
-    protected $fillable = [
-        'name',
-        'email',
-        'username',
+   
+    protected $guarded = [];
+
+    protected $hidden = [
         'password',
-        'status',
+        'remember_token',
     ];
 
-    protected $hidden = ['password', 'remember_token'];
-
+    
     protected $casts = [
         'status' => 'boolean',
+        'email_verified_at' => 'datetime',
+        'password' => 'hashed',
     ];
 
-    public function setPasswordAttribute($password)
+    // Métodos obrigatórios do JWT
+    public function getJWTIdentifier()
     {
-        $this->attributes['password'] = bcrypt($password);
+        return $this->getKey();
+    }
+
+    public function getJWTCustomClaims()
+    {
+        return [];
     }
 
     public function projetos()
@@ -36,3 +44,6 @@ class Usuario extends Authenticatable
         return $this->hasMany(Projeto::class, 'usuario_id');
     }
 }
+   
+
+
